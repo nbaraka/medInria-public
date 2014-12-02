@@ -46,6 +46,7 @@
 #include <medParameterPool.h>
 #include <medParameterPoolManager.h>
 #include <medSettingsManager.h>
+#include <medGlobal.h>
 
 class medVtkViewPrivate
 {
@@ -397,7 +398,9 @@ void medVtkView::displayDataInfo(uint layer)
     {
         if ( data->hasMetaData ( medMetaDataKeys::PatientName.key() ) )
         {
-            const QString patientName = data->metaDataValues ( medMetaDataKeys::PatientName.key() ) [0];
+            QString patientName = data->metaDataValues ( medMetaDataKeys::PatientName.key() ) [0];
+            if(medSettingsManager::instance()->value("database", "anonymous", false).toBool())
+                patientName = anonymise(patientName);
             d->view2d->SetPatientName ( patientName.toAscii().constData() );
             d->view3d->SetPatientName ( patientName.toAscii().constData() );
         }
