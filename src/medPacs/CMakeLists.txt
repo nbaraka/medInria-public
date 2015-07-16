@@ -54,10 +54,7 @@ add_definitions(-DQT_NO_DEBUG)
 ## add library
 ## #############################################################################
 
-add_library(${PROJECT_NAME} SHARED
-  ${${PROJECT_NAME}_CFILES}
-  ${${PROJECT_NAME}_PCH}
-  )
+add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_CFILES})
 
 qt5_use_modules(${PROJECT_NAME} Widgets)
 qt5_use_modules(${PROJECT_NAME} Core)
