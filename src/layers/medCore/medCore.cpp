@@ -33,6 +33,7 @@ namespace pluginManager
             medCore::morphomathOperation::initialize(realpath, verbose);
             medCore::maskImage::initialize(realpath, verbose);
             medCore::singleFilterOperation::initialize(realpath, verbose);
+            medCore::converter::initialize(realpath, verbose);
         }
     }
 }
@@ -506,6 +507,31 @@ namespace maskImage
     }
 
     medAbstractMaskImageProcessPluginFactory& pluginFactory(void)
+    {
+        return _private::factory;
+    }
+
+    void initialize(const QString& path, bool verbose)
+    {
+        pluginManager().setVerboseLoading(verbose);
+        pluginManager().initialize(path);
+    }
+}
+
+namespace converter
+{
+    namespace _private
+    {
+        medAbstractConverterPluginManager manager;
+        medAbstractConverterPluginFactory factory;
+    }
+
+    medAbstractConverterPluginManager& pluginManager(void)
+    {
+        return _private::manager;
+    }
+
+    medAbstractConverterPluginFactory& pluginFactory(void)
     {
         return _private::factory;
     }

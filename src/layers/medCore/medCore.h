@@ -47,6 +47,8 @@
 #include <medAbstractDiffusionScalarMapsProcess.h>
 #include <medAbstractTractographyProcess.h>
 
+#include <medAbstractConverter.h>
+
 #include <medCoreExport.h>
 
 
@@ -211,5 +213,12 @@ namespace medCore
         MEDCORE_EXPORT void initialize(const QString& path, bool verbose = true);
         MEDCORE_EXPORT medAbstractMaskImageProcessPluginManager& pluginManager(void);
         MEDCORE_EXPORT medAbstractMaskImageProcessPluginFactory& pluginFactory(void);
+    }
+    
+    namespace converter
+    {
+        MEDCORE_EXPORT void initialize(const QString& path, bool verbose = true);
+        MEDCORE_EXPORT medAbstractConverterPluginManager& pluginManager(void);
+        MEDCORE_EXPORT medAbstractConverterPluginFactory& pluginFactory(void);
     }
 }

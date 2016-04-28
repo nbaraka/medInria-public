@@ -56,6 +56,8 @@ set(PLUGIN_LIST
   process/morphomath_operation                                           ON
   process/mask_image                                                     ON
   process/single_filter                                                  ON
+  process/pocImaging                                                     ON
+  process/converter                                                      ON  
   )
 
 ## #############################################################################

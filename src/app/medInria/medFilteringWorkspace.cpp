@@ -789,14 +789,18 @@ void medFilteringWorkspace::setProcessSelection(int index)
     }
 
     d->workspaceToolBox->removeWidget(d->currentProcessToolBox);
-    d->currentProcessToolBox = d->presenter->buildToolBoxWidget();
-    d->workspaceToolBox->addWidget(d->currentProcessToolBox);
     d->workspaceToolBox->setTitle(d->process->caption());
+    if(d->presenter)
+    {
+        d->currentProcessToolBox = d->presenter->buildToolBoxWidget();
+        d->workspaceToolBox->addWidget(d->currentProcessToolBox);
 
-    if (this->tabbedViewContainers()->currentWidget() == 0)
-        this->tabbedViewContainers()->setSplitter(this->tabbedViewContainers()->currentIndex(), d->presenter->buildViewContainerSplitter());
-    else
-        this->tabbedViewContainers()->setSplitter(this->tabbedViewContainers()->count(), d->presenter->buildViewContainerSplitter());
+
+        if (this->tabbedViewContainers()->currentWidget() == 0)
+            this->tabbedViewContainers()->setSplitter(this->tabbedViewContainers()->currentIndex(), d->presenter->buildViewContainerSplitter());
+        else
+            this->tabbedViewContainers()->setSplitter(this->tabbedViewContainers()->count(), d->presenter->buildViewContainerSplitter());
+    }
 }
 
 bool medFilteringWorkspace::isUsable()
