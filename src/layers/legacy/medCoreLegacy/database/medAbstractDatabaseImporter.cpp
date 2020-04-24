@@ -328,7 +328,7 @@ void medAbstractDatabaseImporter::importFile ( void )
     medDataIndex index; //stores the last volume's index to be emitted on success
 
     // final loop: re-read, re-populate and write to db
-    for ( ; it != imagesGroupedByVolume.end(); it++ )
+    for ( ; it != imagesGroupedByVolume.end(); ++it )
     {
         emit progress ( this, ( ( qreal ) currentImageIndex/ ( qreal ) imagesCount ) * 50.0 + 50.0 ); // 50? I do not think that reading all the headers is half the job...
 
@@ -401,8 +401,8 @@ void medAbstractDatabaseImporter::importFile ( void )
             emit dataImported(index);
         }
 
-        itPat++;
-        itSer++;
+        ++itPat;
+        ++itSer;
     } // end of the final loop
 
     if ( ! atLeastOneImportSucceeded) {

@@ -51,7 +51,7 @@ public:
 
     QHash<medDataIndex, QModelIndex> medIndexMap;
 
-    enum { DataCount = 13 };
+    static constexpr uint8_t DataCount = 13;
 };
 
 medAbstractDatabaseItem *medDatabaseModelPrivate::item(const QModelIndex& index) const

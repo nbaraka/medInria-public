@@ -29,7 +29,7 @@ class QMimeData;
 class MEDCORELEGACY_EXPORT medDataIndex
 {
 public:
-    enum {NOT_VALID = -1 };
+    static constexpr int8_t NOT_VALID = -1;
 
      medDataIndex(int dataSourceId, int patientId, int studyId, int seriesId);
      medDataIndex();

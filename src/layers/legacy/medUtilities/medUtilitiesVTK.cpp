@@ -25,7 +25,7 @@
 
 medAbstractData* medUtilitiesVTK::changeMaxNumberOfMeshTriangles(medAbstractData *mesh, int maxNumber)
 {
-    vtkMetaDataSet * dataset = reinterpret_cast<vtkMetaDataSet*>(mesh->data());
+    vtkMetaDataSet * dataset = static_cast<vtkMetaDataSet*>(mesh->data());
     vtkPolyData * polydata = dynamic_cast<vtkPolyData*>(dataset->GetDataSet());
 
     int initialNumber = polydata->GetNumberOfPolys();

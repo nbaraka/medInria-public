@@ -19,8 +19,7 @@ class medAnnIntImageMaskHelper : public msegAnnIntHelper
 public:
     medAnnIntImageMaskHelper(medAnnotationInteractor * annInt);
     virtual ~medAnnIntImageMaskHelper();
-
-    enum { AnnotationId = 2 };
+    static constexpr uint8_t AnnotationId = 2;
     bool addAnnotation( medAnnotationData * annData );
     void removeAnnotation( medAnnotationData * annData );
     void annotationModified( medAnnotationData * annData );

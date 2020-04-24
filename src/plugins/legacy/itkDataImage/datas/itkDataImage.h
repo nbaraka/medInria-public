@@ -64,7 +64,7 @@ class ITKDATAIMAGEPLUGIN_EXPORT itkDataImage: public medAbstractTypedImageData<D
 public:
 
     typedef T PixelType;
-    enum { Dimension=DIM };
+    static constexpr unsigned Dimension = DIM; 
 
     itkDataImage(): medAbstractTypedImageData<DIM,T>(),d(new PrivateMember) { }
     itkDataImage(const itkDataImage& other): medAbstractTypedImageData<DIM,T>(), d(new PrivateMember(*(other.d))) { }
