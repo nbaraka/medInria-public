@@ -106,10 +106,10 @@ void vtkMetaDataSetSequence::AddMetaDataSet (vtkMetaDataSet *metadataset)
         throw vtkErrorCode::UserError;
     }
 
-    std::vector<vtkMetaDataSet*>::iterator it;
+    std::vector<vtkMetaDataSet*>::const_iterator it;
     bool inserted = false;
 
-    for (it = this->MetaDataSetList.begin(); it != this->MetaDataSetList.end(); it++)
+    for (it = this->MetaDataSetList.cbegin(); it != this->MetaDataSetList.cend(); it++)
     {
         if ((*it)->GetTime() > metadataset->GetTime())
         {

@@ -182,7 +182,7 @@ void itkDataScalarImagePrivateType<DIM,T>::computeValueCounts() {
         FrequencyType min = itk::NumericTraits< FrequencyType >::max();
         FrequencyType max = itk::NumericTraits< FrequencyType >::min();
 
-        typedef typename HistogramType::Iterator Iterator;
+        typedef typename HistogramType::ConstIterator Iterator;
         for (Iterator it=histogram->Begin(),end=histogram->End();it!=end;++it) {
             FrequencyType c = it.GetFrequency();
             if (min>c) min = c;

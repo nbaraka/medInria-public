@@ -1174,7 +1174,7 @@ void medClutEditorHistogram::setValues(const QMap<qreal, qreal> & bins)
 {
     d->values.clear();
     typedef QMap<qreal, qreal>::const_iterator iterator;
-    for ( iterator it = bins.begin(), end = bins.end(); it != end; ++it )
+    for ( iterator it = bins.cbegin(), end = bins.cend(); it != end; ++it )
     {
         qreal logNum = 1000.0 * log10f( it.value() + 1.0 );
         d->maxLogNum = qMax( logNum, d->maxLogNum );

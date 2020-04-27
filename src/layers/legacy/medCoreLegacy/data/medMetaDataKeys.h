@@ -64,8 +64,8 @@ namespace medMetaDataKeys
 
         static const Key* fromKeyName(const char* name)
         {
-            std::vector<const Key*>::iterator it;
-            for ( it=registery.begin() ; it < registery.end(); it++ )
+            std::vector<const Key*>::const_iterator it;
+            for ( it=registery.cbegin() ; it < registery.cend(); it++ )
             {
                 if( (*it)->key() == name )
                     return *it;

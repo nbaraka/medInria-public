@@ -62,7 +62,7 @@ void Read4DImage(medAbstractData* medData, itk::GDCMImageIO::Pointer io, itkGDCM
 
     std::cout << "Building volume containing\t " << map.size() << "\t subvolumes..." << std::flush;
 
-    for (itkGDCMDataImageReader::FileListMapType::iterator it=map.begin();it!=map.end();++it) {
+    for (itkGDCMDataImageReader::FileListMapType::const_iterator it=map.cbegin();it!=map.end();++it) {
         typename SeriesReaderType::Pointer seriesreader = SeriesReaderType::New();
         seriesreader->UseStreamingOn();
 
